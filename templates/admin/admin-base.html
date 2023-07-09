@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+
+<body id="body-pd">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<link rel="stylesheet" href="{% static 'css/admin_base.css' %}">
+<header class="header mt-5" id="header">
+    <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
+    <div class="header_img"><img src="{{ request.user.avatar.url }}" alt=""></div>
+
+</header>
+
+
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <div class="nav_list">
+                    <a href="/admin-dashboard" class="nav_link mt-5">
+                       <i class="fa-sharp fa-solid fa-house nav_icon"></i>
+                        <span class="nav_name">Home</span>
+                    </a>
+                    <a href="/admin-donor" class="nav_link">
+                 <i class="fa-solid fa-hospital-user nav_icon"></i>
+                        <span class="nav_name">Donor</span></a>
+                    <a href="/admin-patient" class="nav_link">
+                        <i class='fa-solid fa-bed nav_icon'></i>
+                        <span class="nav_name">Patient</span> </a>
+                    <a href="/admin-donation" class="nav_link">
+                        <i class="fa-solid fa-hand-holding-medical nav_icon"></i>
+                        <span class="nav_name">Donations</span> </a>
+                    <a href="/admin-request" class="nav_link">
+                        <i class="fa-solid fa-code-pull-request nav_icon"></i>
+                        <span class="nav_name">Blood Requests</span> </a>
+                    <a href="/admin-request-history" class="nav_link">
+                     <i class="fa-sharp fa-solid fa-clock-rotate-left nav_icon"></i>
+                        <span class="nav_name">Request History</span> </a>
+                    <a href="/blood-update" class="nav_link">
+                      <i class="fa-sharp fa-solid fa-arrows-rotate nav_icon"></i>
+                        <span class="nav_name">Update blood</span> </a>
+
+                </div>
+
+            </div>
+            <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span>
+            </a>
+        </nav>
+    </div>
+    <br><br>
+
+{% include 'navbar_afterlogin.html' %}
+
+<div class="container">
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+{#<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"#}
+{#        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"#}
+{#        crossorigin="anonymous"></script>#}
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"#}
+{#        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"#}
+{#        crossorigin="anonymous"></script>#}
+{#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"#}
+{#        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"#}
+{#        crossorigin="anonymous"></script>#}
+<script src="{% static 'js/sidebar.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

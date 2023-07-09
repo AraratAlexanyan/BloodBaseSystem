@@ -1,0 +1,42 @@
+html {
+    position: relative;
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+body {
+    margin-bottom: 56px;
+    background-color: #455a64;
+}
+
+.flexdiv{
+    display: flex;
+    flex-direction: row;
+}
+.container{
+    flex-grow: 1;
+}
+
+.donor-div{
+    display: flex;
+    background-image: url("/media/woman_gift_card.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+    align-items: end;
+    padding: 15px;
+
+}
+
+
+.custom_a{
+    background-color: #3D5AFE;
+    color: white;
+    border-radius: 20px;
+}
+
+.custom_a:hover{
+    background-color: #304FFE;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+}

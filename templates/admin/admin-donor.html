@@ -1,0 +1,40 @@
+{% extends 'admin/admin-base.html' %}
+{% block content %}
+{%load static%}
+<br><br>
+<div class="container">
+    <H4 class="text-center">{{ us }}</H4><br>
+    <table class="table table-light table-hover table-bordered table-striped">
+        <thead class="bg-dark">
+            <tr>
+                <th scope="col" style="color: rgb(192, 192, 192);">Name</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Photo</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Blood Group</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Address</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Contact</th>
+                <th style="color: rgb(192, 192, 192);">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in users %}
+            <tr>
+                <td> {{t.name}}</td>
+                <td> <img src="{{t.avatar.url }} " alt="Profile Pic" height="40px" width="40px" /></td>
+                <td>{{t.blood_group}}</td>
+                <td>{{t.phone}}</td>
+                <td>{{t.email}}</td>
+
+                <td>
+                    <button class="btn btn-success btn-sm"><a  style="text-decoration: none;color: white;" href="{% url 'user:update-user' t.id  %}">Edit</a> </button>
+                    <button class="btn btn-danger btn-sm"><a  style="text-decoration: none;color: white;" href="{% url 'user:delete_donor' t.id  %}">Delete</a> </button>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+</div>
+
+
+{% endblock content %}

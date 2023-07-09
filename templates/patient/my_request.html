@@ -1,0 +1,51 @@
+{% extends 'patient/dash_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="container">
+    <H4 class="text-center">My Blood Request</H4><br>
+    <table class="table table-light table-hover table-bordered table-striped">
+        <thead class="bg-dark">
+            <tr>
+                <th scope="col" style="color: rgb(192, 192, 192);">Patient's Name</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Age</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Reason</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Blood Group</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Unit</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Date</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Status</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in context %}
+            <tr>
+                <td> {{t.patient_name}}</td>
+
+                <td>{{t.patient_age}}</td>
+                <td>{{t.reason}}</td>
+                <td>{{t.blood_group}}</td>
+                <td>{{t.amount}}</td>
+                <td>{{t.date}}</td>
+                {% if t.status == 'Approved' %}
+                <td><span class="label text-success"> Approved</span></td>
+
+                {% elif t.status == 'Rejected' %}
+                <td><span class="label text-danger">Rejected</span></td>
+                {% else %}
+                <td><span class="label text-warning">Pending</span></td>
+                {% endif %}
+
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+</div>
+
+
+{% endblock content %}

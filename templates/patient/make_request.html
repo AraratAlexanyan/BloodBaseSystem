@@ -1,0 +1,48 @@
+{% extends 'patient/dash_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+
+        <div style="margin-left: 70px;" class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">Make Blood Request</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data" class="mt-5 mb-5" autocomplete="off">
+                    {% csrf_token %}
+
+
+
+                    <div class="form-row">
+                        <div class="value">
+                            <div class="input-group">
+                                {{ form.reason|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="value">
+                            <div class="input-group">
+                                {{ form.amount|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center">
+                        <button class="btn btn--radius-2 btn-danger" type="submit">Request</button>
+                    </div>
+                </form>
+                <br>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

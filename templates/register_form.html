@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="container  mt-5 mb-5" style="max-width: 95%">
+
+        {#        {% for field in form %}#}
+        {##}
+        {#            {% for error in field.errors %}#}
+        {#                 <div class="alert alert-danger alert-dismissable fade show text-center" role="alert">{{ error|escape }}#}
+        {#                        <button type="button" class="btn btn-close" data-bs-dismiss="alert"#}
+        {#                           aria-label="Close"></button>#}
+        {#                    </div>#}
+        {#            {% endfor %}#}
+        {##}
+        {#        {% endfor %}#}
+
+        {% if form.errors %}
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script>
+                let mail = '{{ form.email.errors|striptags}}';
+                swal("Denied! ", mail, "error")
+                let pass = '{{ form.password2.errors|striptags}}';
+                swal("Denied! ", pass, "error")
+                let us = '{{ form.username.errors|striptags}}';
+                swal("Denied! ", us, "error")
+            </script>
+        {% endif %}
+
+        <div class="text-center">
+            {% for message in messages %}
+                {% if message.tags  == 'success' %}
+                    <div class="alert alert-primary alert-dismissable fade show" role="alert">{{ message }}
+                        <a href="{% url 'home' %}" type="button" class="btn btn-close" data-bs-dismiss="alert"
+                           aria-label="Close"></a>
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+        </div>
+        <form method="POST" enctype="multipart/form-data" class="mt-3 " autocomplete="off">
+
+            {% csrf_token %}
+            <div class="card border-dark p-5" style="background-color: #343a40; color: white">
+               <span class="btn  mb-4" style="cursor: default; background-color: #039BE5;color: white">
+                    Please fill all fields below</span>
+                <div class="row">
+                    <div class="col"> {{ form.first_name|as_crispy_field }} </div>
+                    <div class="col"> {{ form.last_name|as_crispy_field }} </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-6"> {{ form.age|as_crispy_field }} </div>
+                    <div class="col-6"> {{ form.blood_group|as_crispy_field }} </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-6"> {{ form.phone|as_crispy_field }} </div>
+                    <div class="col-6"> {{ form.email|as_crispy_field }} </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6"> {{ form.password|as_crispy_field }} </div>
+                    <div class="col-6"> {{ form.password2|as_crispy_field }} </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">{{ form.avatar|as_crispy_field }}</div>
+                </div>
+
+                <hr style="border: 1px solid #000000;">
+
+                <div class="row">
+                    <div class="col-4"> {{ form.gender|as_crispy_field }} </div>
+                    <div class="col-4">{{ form.others|as_crispy_field }}</div>
+                    <div class="col-4"><p>Wanna be Donor?</p>{{ form.is_donor|as_crispy_field }}</div>
+                </div>
+
+
+                <hr style="border: 1px solid #000000; margin-top: 5px;">
+                <button type="submit" class="btn btn-success btn-sm mt-3" style="width: 90px;">Submit</button>
+                <a class="link-light mt-3" style="width: 200px;" href="/login">Already have an account?</a>
+
+
+            </div>
+        </form>
+
+    </div>
+</div>
+    <br><br><br>
+{% endblock %}

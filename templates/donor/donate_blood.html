@@ -1,0 +1,41 @@
+{% extends 'donor/donor_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <style>
+        .flexdiv{
+            justify-content: center;
+        }
+    </style>
+
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card-heading">
+                <h2 class="title text-center">Donate Blood</h2>
+            </div>
+            {#                <div class="card-body">#}
+            <div class="container">
+                <form method="POST" enctype="multipart/form-data" class="mt-5 mb-5" autocomplete="off">
+                    {% csrf_token %}
+
+                    <div class="row flexdiv">
+                        <div class="col-3"> {{ form.amount|as_crispy_field }} </div>
+                        <div class="col-3"> {{ form.disease|as_crispy_field }} </div>
+
+                    </div>
+
+
+                    <div class="text-center mt-3">
+                        <button class="btn btn--radius-2 btn-danger" type="submit">Donate</button>
+                    </div>
+                </form>
+                <br>
+
+            </div>
+
+        </div>
+    </div>
+    {#    </div>#}
+
+{% endblock content %}

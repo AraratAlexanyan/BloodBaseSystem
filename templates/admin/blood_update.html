@@ -1,0 +1,144 @@
+{% extends 'admin/admin-base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<style>
+    .xyz{
+      
+      margin-right: auto;
+      margin-left: auto;
+            }
+</style>
+
+
+<div class="container">
+ <div class="row">
+        <div class="col-sm-3">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                    <h2>A+ <i class="fas fa-tint" ></i></h2>
+                </div><br><br>
+                <div>
+                    {{A1 }} ml
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>B+ <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{B1}} ml
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>O+ <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{O1}} ml
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>AB+ <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{AB1}} ml
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                    <h2>A- <i class="fas fa-tint"></i></h2>
+                </div><br><br>
+                <div>
+                  {{A2}} ml
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>B- <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{B2}} ml
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>O- <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{O2}} ml
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>AB- <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{AB2}} ml
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+<h3 class="text-center mt-3">Update Blood Unit(ml)</h3>
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" class="mt-3 mb-5" autocomplete="off">
+        {% csrf_token %}
+        <div class="card border-dark p-3">
+            <div class="row">
+                <div class="col-6"> {{ blood_form.blood_group|as_crispy_field }} </div>
+                <div class="col-6"> {{ blood_form.amount|as_crispy_field }} </div>
+
+            </div>
+            <hr style="border: 1px solid #000000; margin-top: 5px;">
+            <button type="submit" class="btn btn-primary btn-sm mt-3" style="display: inline-block;">Submit
+            </button>
+
+
+        </div>
+    </form>
+</div>
+
+
+
+</div>
+
+
+{% endblock content %}

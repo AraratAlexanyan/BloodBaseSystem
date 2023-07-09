@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+
+
+<div class="container mt-5">
+    <form method="POST" enctype="multipart/form-data" class="mt-5 mb-5" autocomplete="off">
+        {% csrf_token %}
+            <div class="card border-dark p-3" style="background-color: #343a40; color: white">
+                <span class="btn  mb-4" style="cursor: default; background-color: #039BE5;color: white">
+                    Please fill all fields below</span>
+            <div class="row">
+                <div class="col-6"> {{ form.email|as_crispy_field }} </div>
+                <div class="col-6"> {{ form.password|as_crispy_field }} </div>
+
+            </div>
+            <hr style="border: 1px solid #000000; margin-top: 5px;">
+            <button type="submit" class="btn btn-success btn-sm mt-3" style="width: 90px;
+             display: inline-block;">Submit
+            </button>
+            <a class="link-light mt-3" href="/sign_up">Dont have an account?</a>
+
+
+        </div>
+    </form>
+</div>
+
+
+{% endblock content %}

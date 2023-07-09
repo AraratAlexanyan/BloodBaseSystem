@@ -1,0 +1,67 @@
+{% extends 'patient/dash_base.html' %}
+
+{% block content %}
+
+    <div class="row mt-5">
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <i class="fa fa-user-plus xyz" style="color: #1e88e5;"></i>
+                    </div>
+                    <br>
+                    <div>
+                        Request Made <br>
+                        {{request_made}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <i class="fas fa-sync xyz" style="color:#efb000;"></i>
+                    </div>
+                    <br>
+                    <div>
+                        Pending Request <br>
+                        {{request_pending}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <i class="fas fa-check-circle xyz" style="color: green;"></i>
+                    </div>
+                    <br>
+                    <div>
+                        Approved Request<br>
+                        {{request_approved}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <i class="fas fa-times-circle xyz" style="color: red;"></i>
+                    </div>
+                    <br>
+                    <div>
+                        Rejected Request <br>
+                        {{request_rejected}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}

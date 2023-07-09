@@ -1,0 +1,76 @@
+{% extends 'donor/donor_base.html' %}
+{% block content %}
+    {% load static %}
+    <head>
+        <style>
+            .label {
+                color: white;
+                padding: 8px;
+            }
+
+            .success {
+                background-color: #4CAF50;
+            }
+
+            /* Green */
+            .info {
+                background-color: #2196F3;
+            }
+
+            /* Blue */
+            .warning {
+                background-color: #ff9800;
+            }
+
+            /* Orange */
+            .danger {
+                background-color: #f44336;
+            }
+
+            /* Red */
+            .other {
+                background-color: #e7e7e7;
+                color: black;
+            }
+
+            /* Gray */
+        </style>
+    </head>
+    <br><br>
+    <div class="container">
+        <H4 class="text-center">Patients need help</H4><br>
+        <table class="table table-light table-hover table-bordered table-striped">
+            <thead class="bg-dark">
+            <tr>
+                <th scope="col" style="color: rgb(192, 192, 192);">Patient name</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Blood Group</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Patient age</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Amount</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Contact</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for patient in patients %}
+                <tr>
+
+                    <td> {{ patient.patient_name }}</td>
+
+                    <td>{{ patient.blood_group }}</td>
+                    <td>{{ patient.patient_age }}</td>
+                    <td>{{ patient.amount }}</td>
+                    <td>
+                        {{ patient.request_by_patient.email }}
+
+                    </td>
+
+                </tr>
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+    </div>
+
+
+{% endblock content %}
